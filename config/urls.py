@@ -17,6 +17,7 @@ urlpatterns = [
 
     # User management
     url(r'^users/', include("apps.users.urls", namespace="users")),
+    url(r'^filters/', include("apps.filters.urls", namespace="filters")),
     url(r'^accounts/', include('allauth.urls')),
 
     # Your stuff: custom urls includes go here

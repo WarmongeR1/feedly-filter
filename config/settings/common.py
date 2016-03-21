@@ -32,6 +32,8 @@ DJANGO_APPS = (
     # 'django.contrib.humanize',
 
     # Admin
+    'dal',
+    'dal_select2',
     'django.contrib.admin',
 )
 THIRD_PARTY_APPS = (
@@ -43,8 +45,8 @@ THIRD_PARTY_APPS = (
 
 # Apps specific for this apps go here.
 LOCAL_APPS = (
-    'apps.users',  # custom users app
-    # Your stuff: custom apps go here
+    'apps.users',
+    'apps.filters',
 )
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
@@ -103,7 +105,6 @@ DATABASES = {
 }
 DATABASES['default']['ATOMIC_REQUESTS'] = True
 
-
 # GENERAL CONFIGURATION
 # ------------------------------------------------------------------------------
 # Local time zone for this installation. Choices can be found here:
@@ -113,7 +114,7 @@ DATABASES['default']['ATOMIC_REQUESTS'] = True
 TIME_ZONE = 'UTC'
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#language-code
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'ru'
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#site-id
 SITE_ID = 1
@@ -224,7 +225,6 @@ LOGIN_URL = 'account_login'
 
 # SLUGLIFIER
 AUTOSLUG_SLUGIFY_FUNCTION = 'slugify.slugify'
-
 
 # Location of root django.contrib.admin URL, use {% url 'admin:index' %}
 ADMIN_URL = r'^admin/'
