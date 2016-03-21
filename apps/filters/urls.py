@@ -1,16 +1,17 @@
 # -*- coding: utf-8 -*-
 from dal import autocomplete
-
-try:
-    from django.conf.urls import *
-except ImportError:  # django < 1.4
-    from django.conf.urls.defaults import *
+from django.conf.urls import *
 
 from .models import Entry
+from .views import CollectionListView, CollectionDetailView
+
 urlpatterns = [
-    # URL pattern for the UserListView
+
+    url(r'^$', CollectionListView.as_view(), name='collection-list'),
+    url(r'^(?P<pk>[-\w]+)/$', CollectionDetailView.as_view(), name='collection-detail'),
+
     url(
-        'test-autocomplete/$',
+        'other/entry-autocomplete/$',
         autocomplete.Select2QuerySetView.as_view(
             model=Entry,
             create_field='value',
