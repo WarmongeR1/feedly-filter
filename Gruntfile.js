@@ -13,6 +13,7 @@ module.exports = function (grunt) {
   var pathsConfig = function (appName) {
     this.app = appName || appConfig.name;
 
+
     return {
       app: this.app,
       templates: this.app + '/templates',
@@ -35,17 +36,19 @@ module.exports = function (grunt) {
       gruntfile: {
         files: ['Gruntfile.js']
       },
-      sass: {
-        files: ['<%= paths.sass %>/**/*.{scss,sass}'],
-        tasks: ['sass:dev'],
-        options: {
-          atBegin: true
-        }
-      },
+      //sass: {
+      //  files: ['<%= paths.sass %>/**/*.{scss,sass}'],
+      //  tasks: ['sass:dev'],
+      //  options: {
+      //    atBegin: true
+      //  }
+      //},
       livereload: {
         files: [
           '<%= paths.js %>/**/*.js',
-          '<%= paths.sass %>/**/*.{scss,sass}',
+          '<%= paths.css %>/**/*.css',
+          '<%= paths.css %>/**/*/*.css',
+          //'<%= paths.sass %>/**/*.{scss,sass}',
           '<%= paths.app %>/**/*.html'
           ],
         options: {
@@ -118,7 +121,7 @@ module.exports = function (grunt) {
 
   grunt.registerTask('serve', [
     
-    'bgShell:runDjango',
+    //'bgShell:runDjango',
     'watch'
   ]);
 

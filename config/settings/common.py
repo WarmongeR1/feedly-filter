@@ -45,6 +45,8 @@ THIRD_PARTY_APPS = (
 LOCAL_APPS = (
     'apps.users',
     'apps.filters',
+
+    'django_ajax',
 )
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps

@@ -1,1 +1,44 @@
-{% extends "base.html" %}
+{% extends "base/base.html" %}
+{% load staticfiles %}
+
+{% block content %}
+
+    <!-- Extra -->
+    <div id="marketing" class="container">
+
+
+        <div class="row">
+            <div class="4u">
+                <section>
+                    <p><a href="#"><img src="{% static 'images/pics13.jpg' %}" alt=""></a></p>
+                    <header>
+                        <h2>Feugiat Tempus</h2>
+                    </header>
+                    <p class="subtitle">In posuere eleifend odio. Quisque semper augue mattis maecenas ligula.</p>
+
+                </section>
+            </div>
+            <div class="4u">
+                <section>
+                    <p><a href="#"><img src="{% static 'images/pics14.jpg' %}" alt=""></a></p>
+                    <header>
+                        <h2>Maecenas lectus</h2>
+                    </header>
+                    <p class="subtitle">In posuere eleifend odio. Quisque semper augue mattis maecenas ligula.</p>
+
+                </section>
+            </div>
+            <div class="4u">
+                <section>
+                    <p><a href="#"><img src="{% static 'images/pics15.jpg' %}" alt=""></a></p>
+                    <header>
+                        <h2>Luctus lectus</h2>
+                    </header>
+                    <p class="subtitle">In posuere eleifend odio. Quisque semper augue mattis maecenas ligula.</p>
+
+                </section>
+            </div>
+        </div>
+    </div>
+    <!-- /Extra -->
+{% endblock %}

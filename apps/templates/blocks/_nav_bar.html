@@ -1,0 +1,26 @@
+{% load staticfiles i18n %}
+<div id="header">
+    <div class="container">
+
+        <!-- Logo -->
+        <div id="logo">
+            <h1><a href="{% url 'home' %}">Project</a></h1>
+        </div>
+
+        <!-- Nav -->
+        <nav id="nav">
+            <ul>
+                <li class="active"><a href="{% url 'about' %}">{% trans "About" %}</a></li>
+                <li><a href="{% url 'filters:collection-list' %}">{% trans "Lists" %}</a></li>
+                {% if request.user.is_authenticated %}
+                    <li><a href="{% url 'users:detail' request.user.username %}">{% trans "My Profile" %}</a></li>
+                    <li><a href="{% url 'account_logout' %}">Выйти</a></li>
+                {% else %}
+                    <li><a href="{% url 'account_signup' %}">Регистрация</a></li>
+                    <li><a href="{% url 'account_login' %}">Войти</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+
+    </div>
+</div>

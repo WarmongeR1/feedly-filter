@@ -49,3 +49,6 @@ class UserCollection(models.Model):
 
     class Meta:
         unique_together = ('collection', 'user')
+
+    def __str__(self):
+        return "{} - {}".format(self.collection.title, self.user.username)
