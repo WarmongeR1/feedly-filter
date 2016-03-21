@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-Django settings for project project.
+Django settings for apps apps.
 
 For more information on this file, see
 https://docs.djangoproject.com/en/dev/topics/settings/
@@ -13,7 +13,7 @@ from __future__ import absolute_import, unicode_literals
 import environ
 
 ROOT_DIR = environ.Path(__file__) - 3  # (/a/b/myfile.py - 3 = /)
-APPS_DIR = ROOT_DIR.path('project')
+APPS_DIR = ROOT_DIR.path('apps')
 
 env = environ.Env()
 
@@ -41,9 +41,9 @@ THIRD_PARTY_APPS = (
     'allauth.socialaccount',  # registration
 )
 
-# Apps specific for this project go here.
+# Apps specific for this apps go here.
 LOCAL_APPS = (
-    'project.users',  # custom users app
+    'apps.users',  # custom users app
     # Your stuff: custom apps go here
 )
 
@@ -65,7 +65,7 @@ MIDDLEWARE_CLASSES = (
 # MIGRATIONS CONFIGURATION
 # ------------------------------------------------------------------------------
 MIGRATION_MODULES = {
-    'sites': 'project.contrib.sites.migrations'
+    'sites': 'apps.contrib.sites.migrations'
 }
 
 # DEBUG
@@ -99,7 +99,7 @@ MANAGERS = ADMINS
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#databases
 DATABASES = {
     # Raises ImproperlyConfigured exception if DATABASE_URL not in os.environ
-    'default': env.db("DATABASE_URL", default="postgres:///project"),
+    'default': env.db("DATABASE_URL", default="postgres:///apps"),
 }
 DATABASES['default']['ATOMIC_REQUESTS'] = True
 
@@ -213,8 +213,8 @@ ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
 
 ACCOUNT_ALLOW_REGISTRATION = env.bool("DJANGO_ACCOUNT_ALLOW_REGISTRATION", True)
-ACCOUNT_ADAPTER = 'project.users.adapters.AccountAdapter'
-SOCIALACCOUNT_ADAPTER = 'project.users.adapters.SocialAccountAdapter'
+ACCOUNT_ADAPTER = 'apps.users.adapters.AccountAdapter'
+SOCIALACCOUNT_ADAPTER = 'apps.users.adapters.SocialAccountAdapter'
 
 # Custom user app defaults
 # Select the correct user model

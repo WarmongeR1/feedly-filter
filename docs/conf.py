@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# project documentation build configuration file, created by
+# apps documentation build configuration file, created by
 # sphinx-quickstart.
 #
 # This file is execfile()d with the current directory set to its containing dir.
@@ -40,11 +40,11 @@ source_suffix = '.rst'
 # The master toctree document.
 master_doc = 'index'
 
-# General information about the project.
-project = u'project'
+# General information about the apps.
+project = u'apps'
 copyright = u"2016, Alexander Sapronov"
 
-# The version info for the project you're documenting, acts as replacement for
+# The version info for the apps you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
 # built documents.
 #
@@ -103,7 +103,7 @@ html_theme = 'default'
 # html_theme_path = []
 
 # The name for this set of Sphinx documents.  If None, it defaults to
-# "<project> v<release> documentation".
+# "<apps> v<release> documentation".
 # html_title = None
 
 # A shorter title for the navigation bar.  Default is the same as html_title.
@@ -185,8 +185,8 @@ latex_elements = {
 # (source start file, target name, title, author, documentclass [howto/manual]).
 latex_documents = [
     ('index',
-     'project.tex',
-     u'project Documentation',
+     'apps.tex',
+     u'apps Documentation',
      u"Alexander Sapronov", 'manual'),
 ]
 
@@ -216,7 +216,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    ('index', 'project', u'project Documentation',
+    ('index', 'apps', u'apps Documentation',
      [u"Alexander Sapronov"], 1)
 ]
 
@@ -230,9 +230,9 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-    ('index', 'project', u'project Documentation',
-     u"Alexander Sapronov", 'project',
-     'A short description of the project.', 'Miscellaneous'),
+    ('index', 'apps', u'apps Documentation',
+     u"Alexander Sapronov", 'apps',
+     'A short description of the apps.', 'Miscellaneous'),
 ]
 
 # Documents to append as an appendix to all manuals.
