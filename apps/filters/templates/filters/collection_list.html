@@ -27,7 +27,7 @@
                         <div class="box">
                             <a href="#" class="image left"><img src="{% static 'images/pics04.jpg' %}" alt=""></a>
                             <h2>{{ object.title }}</h2>
-                            <p>Donec nonummy magna quis risus eleifend. </p>
+                            <p>{{ object.description|default:' '|safe}} </p>
                             <a href="{% url 'filters:collection-detail' object.pk %}" class="button">Подробности</a>
                             <a href="{{ object.pk }}" class="button button-collection
                             {% if collections and object.pk in collections %}

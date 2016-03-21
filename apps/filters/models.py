@@ -36,6 +36,7 @@ class Entry(models.Model):
 
 class Collection(models.Model):
     title = models.CharField(max_length=255, verbose_name=_('Title'), unique=True)
+    description = models.TextField(verbose_name=_('Description'), default='None')
     entries = models.ManyToManyField(Entry)
 
     def __str__(self):
