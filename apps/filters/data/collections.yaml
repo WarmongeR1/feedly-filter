@@ -6,3 +6,7 @@
   name: Games
   file: games.csv
   description: word word word
+-
+  name: Apple
+  file: apple.csv
+  description: Фильтровать все что связано с компанией и продукцией Apple
