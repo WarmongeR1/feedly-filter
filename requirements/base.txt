@@ -49,3 +49,5 @@ djangoajax==2.3.4
 git+https://github.com/WarmongeR1/FeedlyClient.git
 lxml==3.6.0
 django-q==0.7.16
+PyYAML==3.11
+django-modeladmin-reorder==0.1.2

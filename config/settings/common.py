@@ -33,6 +33,8 @@ DJANGO_APPS = (
     'dal',
     'dal_select2',
     'django.contrib.admin',
+
+    'admin_reorder',
 )
 THIRD_PARTY_APPS = (
     'crispy_forms',  # Form layouts
@@ -64,6 +66,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'admin_reorder.middleware.ModelAdminReorder',
 )
 
 # MIGRATIONS CONFIGURATION
@@ -222,3 +225,15 @@ SOCIALACCOUNT_PROVIDERS = \
             'FEEDLY_HOST': 'sandbox.feedly.com',
         }
     }
+
+ADMIN_REORDER = (
+
+    'filters',
+    'account',
+
+    'socialaccount',
+    'users',
+    'auth',
+    'sites',
+    'django_q',
+)
