@@ -67,3 +67,5 @@ target/
 
 node_modules
 staticfiles
+
+config/settings/local.py

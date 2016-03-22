@@ -39,6 +39,7 @@ THIRD_PARTY_APPS = (
     'allauth',  # registration
     'allauth.account',  # registration
     'allauth.socialaccount',  # registration
+    'allauth.socialaccount.providers.feedly',
 )
 
 # Apps specific for this apps go here.
@@ -202,3 +203,11 @@ AUTOSLUG_SLUGIFY_FUNCTION = 'slugify.slugify'
 
 # Location of root django.contrib.admin URL, use {% url 'admin:index' %}
 ADMIN_URL = r'^admin/'
+
+SOCIALACCOUNT_PROVIDERS = \
+    {'feedly':
+        {
+            'SCOPE': ['https://cloud.feedly.com/subscriptions'],
+            'FEEDLY_HOST': 'sandbox.feedly.com',
+        }
+    }
