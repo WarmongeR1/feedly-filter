@@ -1,7 +1,7 @@
 # -*- encoding: utf-8 -*-
 
 import lxml.html as lh
-from allauth.socialaccount.models import SocialToken
+from allauth.socialaccount.models import SocialToken, SocialApp
 from django.conf import settings
 from feedly.client import FeedlyClient
 
@@ -9,9 +9,18 @@ from apps.users.models import User
 from .models import UserCollection, Entry
 
 
-def get_api(token):
-    return FeedlyClient(token=token,
-                        sandbox=settings.SOCIALACCOUNT_PROVIDERS['feedly']['FEEDLY_HOST'] == 'sandbox.feedly.com')
+def get_api(token=None):
+    conf = SocialApp.objects.get(provider='feedly')
+
+    options = dict(
+        client_id=conf.client_id,
+        client_secret=conf.secret,
+        sandbox=settings.SOCIALACCOUNT_PROVIDERS['feedly']['FEEDLY_HOST'] == 'sandbox.feedly.com'
+    )
+    if token is not None:
+        options['token'] = token,
+
+    return FeedlyClient(**options)
 
 
 def get_categories(api):
