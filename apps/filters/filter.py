@@ -1,7 +1,5 @@
 # -*- encoding: utf-8 -*-
 
-
-
 import lxml.html as lh
 from allauth.socialaccount.models import SocialToken
 from django.conf import settings
@@ -75,8 +73,3 @@ def filter_user(user: User):
                       get_articles(api),
                       Entry.objects.filter(id__in=UserCollection.objects.filter(user=user).values_list(
                           'collection__entries__pk', flat=True))))
-
-
-def main():
-    user_id = 2
-    filter_user(User.objects.get(pk=user_id))

@@ -48,6 +48,7 @@ LOCAL_APPS = (
     'apps.filters',
 
     'django_ajax',
+    'django_q',
 )
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
@@ -203,6 +204,16 @@ AUTOSLUG_SLUGIFY_FUNCTION = 'slugify.slugify'
 
 # Location of root django.contrib.admin URL, use {% url 'admin:index' %}
 ADMIN_URL = r'^admin/'
+
+Q_CLUSTER = {
+    'name': 'DjangORM',
+    'workers': 2,
+    'timeout': 90,
+    'retry': 120,
+    'queue_limit': 10,
+    'bulk': 5,
+    'orm': 'default'
+}
 
 SOCIALACCOUNT_PROVIDERS = \
     {'feedly':
