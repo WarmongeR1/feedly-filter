@@ -1,3 +1,6 @@
+import re
+from functools import partial
+
 from django.db import models
 from django.utils.translation import ugettext as _
 
@@ -25,6 +28,27 @@ class Entry(models.Model):
     value = models.CharField(max_length=255, verbose_name=_('Value'), unique=True)
     category = models.ManyToManyField(Category, verbose_name=_('Category'))  # sphere, tags
     type = models.IntegerField(choices=TYPE_CHOICES)
+
+    def _no_case_check(self, text):
+        return text and self.value and self.value.lower() in text.lower()
+
+    def _case_check(self, text):
+        return text and self.value and self.value in text
+
+    def _regex_check(self, text):
+        return text and self.value and bool(re.search(self.value, text))
+
+    def _true_check(self, text):
+        return True
+
+    checkers = {
+        1: _no_case_check,
+        2: _case_check,
+        3: _regex_check,
+    }
+
+    def filter(self, text):
+        return self.checkers.get(self.type, self._true_check)(self=self, text=text)
 
     class Meta:
         verbose_name = 'Entry'
